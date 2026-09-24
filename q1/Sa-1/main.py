@@ -1,5 +1,5 @@
 class AssignmentSubmission:
-    def__init__(self, student_name, student_id, assignment_title, due_date):
+    def __init__(self, student_name, student_id, assignment_title, due_date):
         self.student_name = student_name
         self.student_id = student_id
         self._assignment_title = assignment_title
@@ -9,16 +9,16 @@ class AssignmentSubmission:
         self.__submitted_files = []
 
     def add_file(self, filename):
-        if self.__is_duplicate(filename):
+        if filename in self.__submitted_files:
             print(f"[Error] File '{filename}' already exists.")
         else:
-            self.__submitted_file.append(filename)
-            self.__check_submission_status()
+            self.__submitted_files.append(filename)
+            self.__is_submitted = True
             print(f"[Success] Added file: {filename}")
 
     def remove_file(self, filename):
-        if filename in self.__submitted_file:
-            self.__submitted_file.remove(filename)
+        if filename in self.__submitted_files:
+            self.__submitted_files.remove(filename)
             self.__check_submission_status()
             print(f"[Success] Removed file: {filename}")
         else:
@@ -27,18 +27,35 @@ class AssignmentSubmission:
     def assign_grades(self, grade):
         if not self.__is_submitted:
             print("[Error] Cannot grade an unsubmitted assignment.")
-        elif self.__validate_grade(score):
-            self.__score = score
-            print(f"[Success] Grade of {score} assigned to {self.student_name}.")
+        elif self.__validate_grade(grade):
+            self.__score = grade
+            print(f"[Success] Grade of {grade} assigned to {self.student_name}.")
         else:
             print("[Error] Invalid score. Must be between 0.0 and 100.0.")
 
     def get_grade(self) -> str:
-        if self.__score == -1.0:
-            return "Ungraded"
-            return f"{self.__score}/100"
+        if self.__grade is None:
+            return "Not Graded"
+        else:
+            return f"{self.__grade}/100"
+            
+    def view_files(self) -> str:
+        if not self.__submitted_files:
+            return "No files uploaded."
+        else:
+            return ", ".join(self.__submitted_files)
 
-    
+    def get_status_report(self):
+        if len(self.__submitted_files) > 0:
+            status = f"Submitted ({len(self.__submitted_files)} files)"
+        else:
+            status = "Missing"
+        return (
+            f"ID: {self.student_id} | "
+            f"Name: {self.student_name} | "
+            f"Status: {status} | "
+            f"Grade: {self.get_grade()}"
+        )
 
 print("--- INITIALIZING DROPBOX FOR STUDENTS ---")
 student1 = AssignmentSubmission(student_name="Alex Gonzaga", student_id="pshs-1090-x", assignment_title="CS-101", due_date="2026-10-01")
