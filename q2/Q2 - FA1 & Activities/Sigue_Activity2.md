@@ -36,8 +36,6 @@ class Daughter(Parents):
 obj = Daughter("Yeshua", "Joselito", "Eve")
 obj.print_name()
 
-
-
 3. Hierarchical Inheritance
 
 class Parent:
