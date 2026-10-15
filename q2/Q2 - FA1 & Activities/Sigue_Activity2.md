@@ -14,27 +14,28 @@ obj.func2()
 
 2. Multilevel Inheritance
 
-class Grandfather:
-    def __init__(self, name):
+class Family:
+    def __init__(self, momname):
+        self.momname = momname
+
+class Parents(Family):
+    def __init__(self, dadname, momname):
+        self.dadname = dadname
+        Family.__init__(self, momname)
+
+class Daughter(Parents):
+    def __init__(self, name, dadname, momname):
         self.name = name
-
-class Father(Grandfather):
-    def __init__(self, fathername, grandfathername):
-        self.fathername = fathername
-        Grandfather.__init__(self, grandfathername)
-
-class Son(Father):
-    def __init__(self, sonname, fathername, grandfathername):
-        self.sonname = sonname
-        Father.__init__(self, fathername, grandfathername)
+        Parents.__init__(self, dadname, momname)
 
     def print_name(self):
-        print("Grandfather:", self.name)
-        print("Father:", self.fathername)
-        print("Son:", self.sonname)
+        print(self.name)
+        print("Mom name:", self.momname)
+        print("Father name:", self.dadname)
 
-obj = Son("Yeshua", "Joselito", "Grandfather")
+obj = Daughter("Yeshua", "Joselito", "Eve")
 obj.print_name()
+
 
 
 3. Hierarchical Inheritance
