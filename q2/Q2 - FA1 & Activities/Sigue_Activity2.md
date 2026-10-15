@@ -1,4 +1,5 @@
 1. Single Inheritance
+#Class Diagram: https://drive.google.com/file/d/14gZkhOaYrzg77rk_HfSKdCSjOyataRhS/view?usp=drivesdk
 
 class Parent:
     def func1(self):
@@ -13,6 +14,7 @@ obj.func1()
 obj.func2()
 
 2. Multilevel Inheritance
+#Class Diagram: https://drive.google.com/file/d/1ylm6-5758zFhj0RAVNjg6I2THdgk5zZm/view?usp=drivesdk
 
 class Family:
     def __init__(self, momname):
@@ -37,6 +39,7 @@ obj = Daughter("Yeshua", "Joselito", "Eve")
 obj.print_name()
 
 3. Hierarchical Inheritance
+#Class Diagram: https://drive.google.com/file/d/19_IHgPAaqjpGtWetqRZAwsgheI-3GvhT/view?usp=drivesdk
 
 class Parent:
     def func1(self):
