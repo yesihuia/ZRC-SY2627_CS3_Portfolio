@@ -1,1 +1,2 @@
-ecqwdf
+1. The parent class of the Programmer class is the class it directly inherits from in the video’s class hierarchy. The provided study guide does not specify its exact name.
+2. The Intern class should be placed under the appropriate employee or programmer parent class, depending on its role, because it can inherit shared attributes and methods.
