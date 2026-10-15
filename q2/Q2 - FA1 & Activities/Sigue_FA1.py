@@ -1,4 +1,3 @@
-
 class Publication:
     def __init__(self, title, author):
         self.__title = title
@@ -24,9 +23,8 @@ class Publication:
 class Book(Publication):
     def __init__(self, title, author, number_of_pages):
         super().__init__(title, author)
-        self.__number_of_pages = 1
-        self.set_number_of_pages(number_of_pages)
-
+        self.__number_of_pages = number_of_pages
+        
     def get_number_of_pages(self):
         return self.__number_of_pages
 
@@ -68,19 +66,19 @@ pub1 = Publication(
 )
 
 pub2 = Publication(
-    "Reading Today",
-    "Maria Santos"
+    "Why I Love My Boyfriend",
+    "Yeshua Sigue"
 )
 
-book1 = Book("The Hobbit", "J.R.R. Tolkien", 310)
-book2 = Book("Noli Me Tangere", "Jose Rizal", 480)
+book1 = Book("The Hobbit", "J.R.R. Tolkien", -310)
+book2 = Book("How To Math with Matt", "Matthew Ayop", 112)
 
 mag1 = Magazine("National Geographic", "Various Authors", 202)
-mag2 = Magazine("Science Today", "Science Club", 12)
+mag2 = Magazine("Listen to Parents!", "Luka & Yve Ayop", 12)
 
 
 # Printing the information
-print("Publication Information:")
+print("\nPublication Information:")
 pub1.display_info()
 
 print("\nSecond Publication Information:")
@@ -89,26 +87,12 @@ pub2.display_info()
 print("\nBook Information:")
 book1.set_number_of_pages(-310)
 book1.display_info()
-print(book1.get_number_of_pages())
 
 print("\nSecond Book Information:")
 book2.display_info()
 
 print("\nMagazine Information:")
 mag1.display_info()
-print(mag1.get_issue_number())
 
 print("\nSecond Magazine Information:")
 mag2.display_info()
-
-
-# Updating information
-print("\nUpdating Information:")
-
-book1.set_number_of_pages(350)
-book1.set_title("The Hobbit - Revised Edition")
-book1.display_info()
-
-mag1.set_issue_number(203)
-mag1.set_title("National Geographic - New Issue")
-mag1.display_info()
