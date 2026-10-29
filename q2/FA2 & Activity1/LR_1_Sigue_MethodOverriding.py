@@ -2,40 +2,40 @@ class Animal:
     def __init__(self, name):
         self.name = name
 
-    def eat(self):
-        print(self.name, "is eating.")
-
     def make_sound(self):
         print(self.name, "makes a sound.")
 
-class Lion(Animal):
     def eat(self):
-        print(self.name, "eats fresh meat.")
+        print(self.name, "is eating.")
 
+class Lion(Animal):
     def make_sound(self):
         print(self.name, "roars loudly.")
 
-class Elephant(Animal):
     def eat(self):
-        print(self.name, "eats grass and fruits.")
+        print(self.name, "eats fresh meat.")
 
+class Elephant(Animal):
     def make_sound(self):
         print(self.name, "trumpets.")
 
-class Monkey(Animal):
     def eat(self):
-        print(self.name, "eats bananas.")
+        print(self.name, "eats grass and fruits.")
 
+class Monkey(Animal):
     def make_sound(self):
         print(self.name, "chatters.")
 
-lion = Lion("Leo")
-elephant = Elephant("Dumbo")
-monkey = Monkey("George")
+    def eat(self):
+        print(self.name, "eats bananas.")
+
+lion = Lion("Barry")
+elephant = Elephant("Gatty")
+monkey = Monkey("Georgie")
 
 animals = [lion, elephant, monkey]
 
 for animal in animals:
-    animal.eat()
     animal.make_sound()
+    animal.eat()
     print()
