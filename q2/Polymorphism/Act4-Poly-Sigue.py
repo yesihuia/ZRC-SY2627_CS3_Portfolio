@@ -2,7 +2,6 @@ class HealthPotion:
     def use(self):
         print("You regain 50 HP!")
 
-
 class ManaPotion:
     def use(self):
         print("You restore 30 MP!")
